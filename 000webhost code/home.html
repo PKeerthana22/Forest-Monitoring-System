@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            background-image: url('forest3.jpg');
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .header-text {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .header-text h1 {
+            margin: 0;
+            padding: 10px 0;
+            font-size: 55px;
+            color: white;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+        
+        }
+        .card {
+            width: 30%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px 0 20px 0; /* Added margin-top to move the cards down */
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #666;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-text">
+            <h1>Preserve the forest,</h1>
+            <h1>Protect our future!</h1>
+        </div>
+        <div class="cards">
+            <!-- Card 1: Environment Monitor -->
+            <div class="card" onclick="openEnviro()">
+                <h3>Environment Monitor</h3>
+                <p>Click here to monitor environmental conditions.</p>
+            </div>
+            <!-- Card 2: Water Level Check -->
+            <div class="card" onclick="openWater()">
+                <h3>Water Level Check</h3>
+                <p>Click here to check the water level.</p>
+            </div>
+            <!-- Card 3: Open Camera -->
+            <div class="card" onclick="openCamera()">
+                <h3>Open Camera</h3>
+                <p>Click here to open the camera.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions to handle card clicks and navigation
+        function openEnviro() {
+            window.location.href = "enviro_monitor.php";
+        }
+
+        function openWater() {
+            window.location.href = "water.html";
+        }
+
+        function openCamera() {
+            // Make AJAX request to start camera stream
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/video_feed', true);
+            xhr.send();
+            // Redirect to the camera page
+            window.location.href = "camera_page.html";
+        }
+    </script>
+</body>
+</html>
+
