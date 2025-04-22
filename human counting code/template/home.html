@@ -1,0 +1,174 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 30%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #666;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" onclick="openEnviro()">
+            <h3>Environment Monitor</h3>
+            <p>Click here to monitor environmental conditions.</p>
+        </div>
+        <div class="card" onclick="openWater()">
+            <h3>Water Level Check</h3>
+            <p>Click here to check the water level.</p>
+        </div>
+        <div class="card" onclick="openCamera()">
+            <h3>Open Camera</h3>
+            <p>Click here to open the camera.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions to handle card clicks and navigation
+        function openEnviro() {
+            // Redirect or navigate to environment monitoring page
+            window.location.href = "enviro_monitor.html";
+        }
+
+        function openWater() {
+            // Redirect or navigate to water level check page
+            window.location.href = "water_level.html";
+        }
+
+        function openCamera() {
+            // Make AJAX request to start camera stream
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/video_feed', true);
+            xhr.send();
+            // Redirect to the Flask application
+            window.location.href = "http://127.0.0.1:5000/";
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 30%;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #666;
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Card 1: Environment Monitor -->
+        <div class="card" onclick="openEnviro()">
+            <h3>Environment Monitor</h3>
+            <p>Click here to monitor environmental conditions.</p>
+        </div>
+        <!-- Card 2: Water Level Check -->
+        <div class="card" onclick="openWater()">
+            <h3>Water Level Check</h3>
+            <p>Click here to check the water level.</p>
+        </div>
+        <!-- Card 3: Open Camera -->
+        <div class="card" onclick="openCamera()">
+            <h3>Open Camera</h3>
+            <p>Click here to open the camera.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functions to handle card clicks and navigation
+        function openEnviro() {
+            window.location.href = "/enviro_monitor";
+        }
+
+        function openWater() {
+            window.location.href = "water_level.html";
+        }
+
+        function openCamera() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/video_feed', true);
+            xhr.send();
+            window.location.href = "http://127.0.0.1:5000/";
+        }
+    </script>
+</body>
+</html>

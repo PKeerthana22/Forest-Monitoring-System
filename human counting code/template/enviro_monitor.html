@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Monitor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .sensor-data {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .sensor-data h3 {
+            color: #333;
+        }
+        .sensor-data p {
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+    <script>
+        function fetchData() {
+            fetch('/enviro_monitor')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sensor-data').innerHTML = data;
+                })
+                .catch(error => console.log('Error fetching data:', error));
+        }
+
+        setInterval(fetchData, 3000);
+    </script>
+</head>
+<body onload="fetchData()">
+    <div class="container">
+        <div id="sensor-data" class="sensor-data">
+            <h3>Loading sensor data...</h3>
+        </div>
+    </div>
+</body>
+</html>
